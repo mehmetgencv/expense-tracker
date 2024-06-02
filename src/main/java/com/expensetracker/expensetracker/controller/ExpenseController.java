@@ -1,11 +1,40 @@
 package com.expensetracker.expensetracker.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.expensetracker.expensetracker.dto.ExpenseDTO;
+import com.expensetracker.expensetracker.general.RestResponse;
+import com.expensetracker.expensetracker.request.ExpenseSaveRequest;
+import com.expensetracker.expensetracker.service.ExpenseService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/expense")
+@RequestMapping("/api/v1/expenses")
 public class ExpenseController {
+
+    private final ExpenseService expenseService;
+
+    public ExpenseController(ExpenseService expenseService) {
+        this.expenseService = expenseService;
+    }
+
+    @GetMapping
+    public ResponseEntity<RestResponse<List<ExpenseDTO>>> getAllExpenses() {
+
+        return ResponseEntity.ok(RestResponse.of(expenseService.getAllExpenses()));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<RestResponse<ExpenseDTO>>  getExpenseById(@PathVariable Long id) {
+        return ResponseEntity.ok(RestResponse.of(expenseService.getExpenseById(id)));
+    }
+
+    @PostMapping
+    public ResponseEntity<RestResponse<ExpenseDTO>>  addExpense(@RequestBody ExpenseSaveRequest request) {
+        return ResponseEntity.ok(RestResponse.of(expenseService.addExpense(request)));
+    }
+
 
 
 }
