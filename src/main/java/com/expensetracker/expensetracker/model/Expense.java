@@ -3,6 +3,7 @@ package com.expensetracker.expensetracker.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Expense {
@@ -12,7 +13,7 @@ public class Expense {
 
     private String description;
     private double amount;
-    private LocalDate date;
+    private LocalDateTime date;
 
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
@@ -25,16 +26,58 @@ public class Expense {
     public Expense() {
     }
 
-    public Expense(String description, double amount, LocalDate date, PaymentMethod paymentMethod, ExpenseCategory category, boolean isRecurring) {
+    public Expense(String description, double amount, PaymentMethod paymentMethod, ExpenseCategory category, boolean isRecurring) {
         this.description = description;
         this.amount = amount;
-        this.date = date;
+        this.date = LocalDateTime.now();
         this.paymentMethod = paymentMethod;
         this.category = category;
         this.isRecurring = isRecurring;
     }
 
-    // Getters and setters
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public ExpenseCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(ExpenseCategory category) {
+        this.category = category;
+    }
+
+    public boolean isRecurring() {
+        return isRecurring;
+    }
+
+    public void setRecurring(boolean recurring) {
+        isRecurring = recurring;
+    }
 
     // toString, equals, hashCode methods if needed
 }

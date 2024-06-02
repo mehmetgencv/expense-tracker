@@ -1,4 +1,4 @@
 package com.expensetracker.expensetracker.request;
 
-public class TaskSaveRequest {
+public class ExpenseSaveRequest {
 }
