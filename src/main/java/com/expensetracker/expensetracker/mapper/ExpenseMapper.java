@@ -3,6 +3,7 @@ package com.expensetracker.expensetracker.mapper;
 
 import com.expensetracker.expensetracker.dto.ExpenseDTO;
 import com.expensetracker.expensetracker.model.Expense;
+import com.expensetracker.expensetracker.request.ExpenseSaveRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -18,5 +19,6 @@ public interface ExpenseMapper {
 
     ExpenseDTO convertToExpenseDTO(Expense expenses);
     Expense convertToExpense(ExpenseDTO expenseDTO);
+    Expense convertToExpense(ExpenseSaveRequest request);
 }
 
