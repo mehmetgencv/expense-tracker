@@ -9,6 +9,7 @@ import jakarta.persistence.Enumerated;
 import java.time.LocalDateTime;
 
 public record ExpenseDTO(
+        Long id,
         String description,
         Double amount,
         LocalDateTime date,

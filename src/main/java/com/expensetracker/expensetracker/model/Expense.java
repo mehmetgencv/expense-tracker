@@ -36,6 +36,10 @@ public class Expense {
         this.isRecurring = isRecurring;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getDescription() {
         return description;
     }

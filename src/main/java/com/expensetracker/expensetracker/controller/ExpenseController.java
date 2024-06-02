@@ -3,6 +3,7 @@ package com.expensetracker.expensetracker.controller;
 import com.expensetracker.expensetracker.dto.ExpenseDTO;
 import com.expensetracker.expensetracker.general.RestResponse;
 import com.expensetracker.expensetracker.request.ExpenseSaveRequest;
+import com.expensetracker.expensetracker.request.ExpenseUpdateRequest;
 import com.expensetracker.expensetracker.service.ExpenseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,18 @@ public class ExpenseController {
     @PostMapping
     public ResponseEntity<RestResponse<ExpenseDTO>>  addExpense(@RequestBody ExpenseSaveRequest request) {
         return ResponseEntity.ok(RestResponse.of(expenseService.addExpense(request)));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<RestResponse<Boolean>>  deleteExpense(@PathVariable Long id) {
+        return ResponseEntity.ok(RestResponse.of(expenseService.deleteExpenseById(id)));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<RestResponse<ExpenseDTO>>  updateExpense(@PathVariable Long id,
+                                                                   @RequestBody ExpenseUpdateRequest request) {
+        return ResponseEntity.ok(RestResponse.of(expenseService.updateExpenseById(id, request)));
+
     }
 
 
