@@ -24,13 +24,12 @@ public class Expense {
     private boolean isRecurring;
 
     public Expense() {
-        this.date = LocalDateTime.now();
     }
 
-    public Expense(String description, double amount, PaymentMethod paymentMethod, ExpenseCategory category, boolean isRecurring) {
+    public Expense(String description, double amount,LocalDateTime date, PaymentMethod paymentMethod, ExpenseCategory category, boolean isRecurring) {
         this.description = description;
         this.amount = amount;
-        this.date = LocalDateTime.now();
+        this.date = date;
         this.paymentMethod = paymentMethod;
         this.category = category;
         this.isRecurring = isRecurring;
@@ -50,6 +49,10 @@ public class Expense {
 
     public LocalDateTime getDate() {
         return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
     public double getAmount() {

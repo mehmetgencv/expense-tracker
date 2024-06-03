@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 public record ExpenseSaveRequest(
         String description,
         Double amount,
+        LocalDateTime date,
         PaymentMethod paymentMethod,
         ExpenseCategory category,
         boolean isRecurring
