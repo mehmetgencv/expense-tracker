@@ -48,6 +48,12 @@ public class ExpenseController {
 
     }
 
+    @GetMapping("/between")
+    public ResponseEntity<RestResponse<List<ExpenseDTO>>> getExpenseBetweenDates(@RequestParam("startDate") String startDate,
+                                                                                 @RequestParam("endDate") String endDate) {
+        return ResponseEntity.ok(RestResponse.of(expenseService.getExpensesBetweenDates(startDate, endDate)));
+    }
+
 
 
 }

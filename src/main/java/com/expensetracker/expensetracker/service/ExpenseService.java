@@ -9,6 +9,7 @@ import com.expensetracker.expensetracker.request.ExpenseSaveRequest;
 import com.expensetracker.expensetracker.request.ExpenseUpdateRequest;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -53,5 +54,14 @@ public class ExpenseService {
         expense = ExpenseMapper.INSTANCE.updateExpenseFields(expense, request);
         expense = expenseRepository.save(expense);
         return ExpenseMapper.INSTANCE.convertToExpenseDTO(expense);
+    }
+
+    public List<ExpenseDTO> getExpensesBetweenDates(String startDate, String endDate) {
+
+        LocalDateTime start = LocalDateTime.parse(startDate);
+        LocalDateTime end = LocalDateTime.parse(endDate);
+
+        List<Expense> expenses = expenseRepository.findExpensesBetweenDates(start, end);
+        return ExpenseMapper.INSTANCE.convertToExpenseDTOs(expenses);
     }
 }
