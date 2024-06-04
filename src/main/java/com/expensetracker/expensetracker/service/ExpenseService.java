@@ -36,6 +36,8 @@ public class ExpenseService {
 
     public ExpenseDTO addExpense(ExpenseSaveRequest request) {
         Expense expense = ExpenseMapper.INSTANCE.convertToExpense(request);
+        expense.setCreateDate(LocalDateTime.now());
+        expense.setUpdateDate(LocalDateTime.now());
         expense = expenseRepository.save(expense);
         return ExpenseMapper.INSTANCE.convertToExpenseDTO(expense);
     }
@@ -52,6 +54,7 @@ public class ExpenseService {
     public ExpenseDTO updateExpenseById(Long id, ExpenseUpdateRequest request) {
         Expense expense = findExpenseById(id);
         expense = ExpenseMapper.INSTANCE.updateExpenseFields(expense, request);
+        expense.setUpdateDate(LocalDateTime.now());
         expense = expenseRepository.save(expense);
         return ExpenseMapper.INSTANCE.convertToExpenseDTO(expense);
     }

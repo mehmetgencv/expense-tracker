@@ -23,6 +23,9 @@ public class Expense {
 
     private boolean isRecurring;
 
+    private LocalDateTime createDate;
+    private LocalDateTime updateDate;
+
     public Expense() {
     }
 
@@ -85,6 +88,22 @@ public class Expense {
 
     public void setRecurring(boolean recurring) {
         isRecurring = recurring;
+    }
+
+    public LocalDateTime getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(LocalDateTime createDate) {
+        this.createDate = createDate;
+    }
+
+    public LocalDateTime getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(LocalDateTime updateDate) {
+        this.updateDate = updateDate;
     }
 
     // toString, equals, hashCode methods if needed
