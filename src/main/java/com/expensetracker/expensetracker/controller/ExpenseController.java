@@ -1,5 +1,6 @@
 package com.expensetracker.expensetracker.controller;
 
+import com.expensetracker.expensetracker.dto.ExpenseCategoryReportDTO;
 import com.expensetracker.expensetracker.dto.ExpenseDTO;
 import com.expensetracker.expensetracker.general.RestResponse;
 import com.expensetracker.expensetracker.request.ExpenseSaveRequest;
@@ -52,6 +53,24 @@ public class ExpenseController {
     public ResponseEntity<RestResponse<List<ExpenseDTO>>> getExpenseBetweenDates(@RequestParam("startDate") String startDate,
                                                                                  @RequestParam("endDate") String endDate) {
         return ResponseEntity.ok(RestResponse.of(expenseService.getExpensesBetweenDates(startDate, endDate)));
+    }
+
+
+    @GetMapping("/reports/monthly")
+    public ResponseEntity<RestResponse<List<ExpenseDTO>>> getExpenseMonthlyReports(@RequestParam int year,
+                                                                                   @RequestParam int month) {
+        return ResponseEntity.ok(RestResponse.of(expenseService.getMonthlyReport(year, month)));
+    }
+
+    @GetMapping("/reports/yearly")
+    public ResponseEntity<RestResponse<List<ExpenseDTO>>> getExpenseYearlyReports(@RequestParam int year) {
+        return ResponseEntity.ok(RestResponse.of(expenseService.getYearlyReport(year)));
+    }
+
+    @GetMapping("/reports/category")
+    public ResponseEntity<RestResponse<List<ExpenseCategoryReportDTO>>> getExpenseCategoryReports(@RequestParam("startDate") String startDate,
+                                                                                                  @RequestParam("endDate") String endDate) {
+        return ResponseEntity.ok(RestResponse.of(expenseService.getCategoryReport(startDate, endDate)));
     }
 
 

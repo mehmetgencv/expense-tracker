@@ -29,5 +29,8 @@ public interface ExpenseMapper {
 
     @Mapping(target = "date", ignore = true)
     Expense updateExpenseFields(@MappingTarget Expense expense, ExpenseUpdateRequest request);
+
+
+
 }
 
