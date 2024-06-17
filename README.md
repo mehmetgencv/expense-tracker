@@ -1,6 +1,3 @@
-Here's a sample README file for your Expense Tracker project:
-
----
 
 # Expense Tracker
 
@@ -28,7 +25,7 @@ Expense Tracker is a RESTful web application that allows users to track their ex
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repository.git
+   git clone https://github.com/mehmetgencv/expense-tracker.git
    ```
 2. Navigate to the project directory:
    ```bash
@@ -69,7 +66,7 @@ This project is licensed under the MIT License.
   ```json
   {
     "status": "SUCCESS",
-    "data": [...]
+    "data": []
   }
   ```
 
@@ -83,7 +80,7 @@ This project is licensed under the MIT License.
   ```json
   {
     "status": "SUCCESS",
-    "data": {...}
+    "data": {}
   }
   ```
 
@@ -106,7 +103,7 @@ This project is licensed under the MIT License.
   ```json
   {
     "status": "SUCCESS",
-    "data": {...}
+    "data": {}
   }
   ```
 
@@ -145,7 +142,7 @@ This project is licensed under the MIT License.
   ```json
   {
     "status": "SUCCESS",
-    "data": {...}
+    "data": {}
   }
   ```
 
@@ -160,7 +157,7 @@ This project is licensed under the MIT License.
   ```json
   {
     "status": "SUCCESS",
-    "data": [...]
+    "data": []
   }
   ```
 
@@ -177,7 +174,7 @@ This project is licensed under the MIT License.
   ```json
   {
     "status": "SUCCESS",
-    "data": [...]
+    "data": []
   }
   ```
 
@@ -191,7 +188,7 @@ This project is licensed under the MIT License.
   ```json
   {
     "status": "SUCCESS",
-    "data": [...]
+    "data": []
   }
   ```
 
@@ -206,6 +203,6 @@ This project is licensed under the MIT License.
   ```json
   {
     "status": "SUCCESS",
-    "data": [...]
+    "data": []
   }
   ```
